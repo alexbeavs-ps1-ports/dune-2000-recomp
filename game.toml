@@ -1,0 +1,59 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "Dune 2000"
+id = "SLUS-00973"
+players = 1
+exe = "disc/SLUS_009.73"
+disc = "disc/Dune 2000 (USA).cue"
+discs = ["disc/Dune 2000 (USA).cue"]
+disc_serials = ["SLUS-00973"]
+load_address = "0x80010000"
+entry_pc = "0x80010168"
+text_size = "0x00008800"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "Dune 2000 (USA).bin"
+cue_name = "Dune 2000 (USA).cue"
+boot_exe = "SLUS_009.73"
+known_sizes = [685121136]
+known_md5 = [
+  "3f8aa4c17d8b39363401ad9af944dbeb",
+]
+known_sha1 = [
+  "0ac0661c4391ccaca389afef29f4321bb01daeda",
+]
+known_crc32 = [
+  "4d59d132",
+]
+
+[recompiler]
+bios_config = "psxrecomp/bios/SCPH1001.toml"
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+openbios = false
+bios_hle = false
+window_title = "Dune 2000 Recompiled"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 1
+required_disc_fp = "34facefbc7326c828889ae724a26125026f46dff27a9707f1929b0c121fde26e"

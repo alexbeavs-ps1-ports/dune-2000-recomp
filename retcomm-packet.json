@@ -1,0 +1,98 @@
+{
+  "format_version": 1,
+  "id": "dune-2000-psx",
+  "name": "Dune 2000",
+  "kind": "recomp",
+  "platform": "psx",
+  "source_repo": "dune-2000-recomp",
+  "rom_identity": {
+    "crc32": [
+      "4d59d132"
+    ],
+    "md5": [
+      "3f8aa4c17d8b39363401ad9af944dbeb"
+    ],
+    "sha1": [
+      "0ac0661c4391ccaca389afef29f4321bb01daeda"
+    ],
+    "disc_serials": [
+      "SLUS-00973"
+    ],
+    "sizes": [
+      685121136
+    ],
+    "filenames": [
+      "Dune 2000 (USA).cue",
+      "Dune 2000 (USA).bin"
+    ],
+    "track_counts": [
+      1
+    ],
+    "disc_fps": [
+      "34facefbc7326c828889ae724a26125026f46dff27a9707f1929b0c121fde26e"
+    ],
+    "require_cue": true
+  },
+  "rom_extensions": [
+    ".cue",
+    ".bin",
+    ".chd"
+  ],
+  "bios_identity": {
+    "required": true,
+    "name": "SCPH1001.BIN",
+    "profile": "SCPH1001",
+    "crc32": [
+      "37157331"
+    ],
+    "md5": [
+      "924e392ed05558ffdb115408c263dccf"
+    ],
+    "sha1": [
+      "10155d8d6e6e832d6ea66db9bc098321fb5e8ebf"
+    ],
+    "sha256": [
+      "71af94d1e47a68c11e8fdb9f8368040601514a42a5a399cda48c7d3bff1e99d3"
+    ],
+    "sizes": [
+      524288
+    ],
+    "filenames": [
+      "SCPH1001.BIN"
+    ]
+  },
+  "release": {
+    "github": "alexbeavs-ps1-ports/dune-2000-recomp",
+    "allow_prerelease": false,
+    "asset_glob": {
+      "windows-x64": "dune-2000-*-windows-x64.zip",
+      "linux-x64": "dune-2000-*-linux-x64.zip",
+      "macos-arm64": "dune-2000-*-macos-arm64.zip",
+      "macos-x64": "dune-2000-*-macos-x64.zip"
+    }
+  },
+  "launch": {
+    "windows": "dune_2000.exe",
+    "linux": "dune_2000",
+    "macos": "dune_2000"
+  },
+  "build": {
+    "source": {
+      "github": "alexbeavs-ps1-ports/dune-2000-recomp",
+      "ref": ""
+    },
+    "toolchain": {
+      "id": "cmake-clang-v1",
+      "min_version": "1.0.14"
+    },
+    "generate": {
+      "engine": "psxrecomp",
+      "config": "game.toml"
+    },
+    "cmake": {
+      "build_dir": "build",
+      "target": "psx-runtime",
+      "config": "Release"
+    }
+  }
+}
